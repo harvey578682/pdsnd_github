@@ -7,7 +7,7 @@ README file - 2019/07/08
 Explore US Bikeshare Data
 
 ### Description
-In this project, using data provided by Motivate, a bike share system provider for many major cities in the United States, to uncover bike share usage patterns.
+In this project, using data provided by Motivate, a bike share system provider for many major cities in the United States, to uncover bike share usage patterns. Using Python and Pandas.
 
 **The Datasets**
 
