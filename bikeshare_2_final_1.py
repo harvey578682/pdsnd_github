@@ -24,7 +24,7 @@ def get_filters():
                 break
             else:
                 print("city not found!")
-        
+
         except Exception:
             print("It's not a valid input!")
 
@@ -36,7 +36,7 @@ def get_filters():
                 break
             else:
                 print("month not found!")
-            
+
         except Exception:
             print("It's not a valid input!")
 
@@ -48,11 +48,11 @@ def get_filters():
                 break
             else:
                 print("month not found!")
-            
+
         except Exception:
             print("It's not a valid input!")
     print('-'*40)
-    return city, month, day      
+    return city, month, day
 
 
 def load_data(city, month, day):
@@ -152,11 +152,11 @@ def trip_duration_stats(df):
 
     # display total travel time
     total_travel_time = df['Trip Duration'].sum()
-    print('Total Travel Time: {} s'.format(total_travel_time))
+    print(f'Total Travel Time: {total_travel_time} s')
 
     # display mean travel time
     average_travel_time = df['Trip Duration'].mean()
-    print('Average Travel Time: {} s'.format(average_travel_time))
+    print(f'Average Travel Time: {average_travel_time} s')
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -171,18 +171,18 @@ def user_stats(df):
     # Display counts of user types
     user_types = df['User Type'].value_counts()
     print('Counts of user types: ')
-    print('{}: {}, {}: {}\n'.format(user_types.index[0], user_types[0] ,user_types.index[1], user_types[1]))
+    print(f'{user_types.index[0]}: {user_types[0]}, {user_types.index[1]}: {user_types[1]}\n')
 
 
     # Display counts of gender
     try:
         gender = df['Gender'].value_counts()
         print('Counts of gender: ')
-        print('{}: {}, {}: {}\n'.format(gender.index[0], gender[0] ,gender.index[1], gender[1]))
-    
+        print(f'{gender.index[0]}: {gender[0]}, {gender.index[1]}: {gender[1]}\n')
+
     except Exception:
         print('No gender data\n')
-        
+
     # Display earliest, most recent, and most common year of birth
     try:
         eariest_year_birth = int(df['Birth Year'].min())
@@ -190,10 +190,10 @@ def user_stats(df):
         most_common_year_birth = int(df['Birth Year'].mode()[0])
         print('Oldest, Youngest, and Most Popular Birth of Year:')
         print(eariest_year_birth, most_recent_year_birth, most_common_year_birth)
-    
+
     except Exception:
         print('No Birth Year data')
-        
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -201,8 +201,8 @@ def display_data(city):
     """Displays raw data on bikeshare users."""
     df = pd.read_csv(CITY_DATA[city])
     display = input('Do you want to see raw data? Enter yes or no.\n')
-    print(df[0 : 5])
     i = 5
+    print(df[0 : i])
     if display == 'yes':
         while True:
             display_repeat = input('Do you want to see more 5 lines of raw data? Enter yes or no.\n')
@@ -213,7 +213,7 @@ def display_data(city):
                 break
     else:
         pass
-    
+
 def main():
     while True:
         city, month, day = get_filters()
