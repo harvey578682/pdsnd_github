@@ -201,8 +201,8 @@ def display_data(city):
     """Displays raw data on bikeshare users."""
     df = pd.read_csv(CITY_DATA[city])
     display = input('Do you want to see raw data? Enter yes or no.\n')
-    print(df[0 : 5])
     i = 5
+    print(df[0 : i])
     if display == 'yes':
         while True:
             display_repeat = input('Do you want to see more 5 lines of raw data? Enter yes or no.\n')
